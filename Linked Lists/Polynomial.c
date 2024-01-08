@@ -115,5 +115,6 @@ int main(){
     if(poly1 == NULL || poly2 == NULL) return 1;
     PolyNode** result = add_poly(poly1, poly2);
     print_poly(result);
+    delete_poly(poly1);
     return 0;
 }
