@@ -97,6 +97,16 @@ void print_poly(PolyNode** poly){
     printf("\n");
 }
 
+void delete_poly(PolyNode** poly){
+    PolyNode* curr = *poly;
+    while(curr != NULL){
+        PolyNode* old_node = curr;
+        curr = curr->next;
+        free(old_node);
+    }
+    free(poly);
+}
+
 int main(){
     PolyNode** poly1 = parse_poly("2x^3 - 3x^5 - 4");
     PolyNode** poly2 = parse_poly("-3.8x^2 + 2x^4 + 1");
