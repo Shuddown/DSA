@@ -1,1 +1,3 @@
 # DSA
+This is just all the dsa assignments basically<br>
+So yeah...
