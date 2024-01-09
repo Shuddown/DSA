@@ -90,6 +90,7 @@ void del_list(ListNode** head){
         free(curr);
         curr = next;
     }
+    free(head);
 }
 
 int main(){

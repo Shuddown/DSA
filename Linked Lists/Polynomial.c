@@ -49,6 +49,16 @@ PolyNode** add_poly(PolyNode** poly1, PolyNode** poly2){
     return result;
 }
 
+PolyNode** mul_poly(PolyNode** poly1, PolyNode** poly2){
+    PolyNode** result = new_poly();
+    for(PolyNode* curr1 = *poly1; curr1 != NULL; curr1 = curr1->next){
+        for(PolyNode* curr2 = *poly2; curr2!= NULL; curr2 = curr2->next){
+            add_term(result, curr1->coeff * curr2->coeff, curr1->exp + curr2->exp);
+        }
+    }
+    return result;
+}
+
 char* clean_poly(const char* poly){
     char* result = (char*) malloc(sizeof(char) * (strlen(poly) + 2));
     char* tracer = result;
@@ -113,8 +123,10 @@ int main(){
     print_poly(poly1);
     print_poly(poly2);
     if(poly1 == NULL || poly2 == NULL) return 1;
-    PolyNode** result = add_poly(poly1, poly2);
-    print_poly(result);
+    PolyNode** result1 = add_poly(poly1, poly2);
+    print_poly(result1);
+    PolyNode** result2 = mul_poly(poly1, poly2);
+    print_poly(result2);
     delete_poly(poly1);
     return 0;
 }
